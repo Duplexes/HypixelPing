@@ -15,7 +15,7 @@ hook = Webhook('https://discord.com/api/webhooks/860355674144112650/qiKRq6pPvp7e
 #Put user ID to ping / role ID(ping user ID: <@USERIDHERE> ping role ID: <&ROLEIDHERE>):
 notifcationPing = '<@323185194804969472>'
 #Put Hypixel API key here: (Get key from /api in game)
-hypixelAPIKey = '87af3086-630b-42d3-8851-6cae864b7e14'
+hypixelAPIKey = '02948a82-9bc5-4f3d-af8a-0e423600284e'
 #Time between checks if the users are online: (More accounts means higher time. If you get errors increase this.)
 timeBetween = 60
 
@@ -44,8 +44,10 @@ while True:
             rawuuid = 'false'
         responseHypixel = requests.get(f'https://api.hypixel.net/status?key={hypixelAPIKey}&uuid={rawuuid}')
         jsonHypixel = responseHypixel.json()
+        print(jsonHypixel)
         userOnline = jsonHypixel['session']['online']
         time.sleep(3)
+
         if userOnline == True:
             if x not in usersOnline:
                 usersOnline.append(x)
