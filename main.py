@@ -11,13 +11,13 @@ from dhooks import Webhook
 #Config:
 
 #Put discord webhook here:
-hook = Webhook('https://discord.com/api/webhooks/860355674144112650/qiKRq6pPvp7e3Dkgjsi1tiFPJjmENRXWUKZBHw0Sxd0PQI39gcTP1PQh73giiWjmZ6ag')
+#hook = Webhook('')
 #Put user ID to ping / role ID(ping user ID: <@USERIDHERE> ping role ID: <&ROLEIDHERE>):
-notifcationPing = '<@323185194804969472>'
+notifcationPing = '<@>'
 #Put Hypixel API key here: (Get key from /api in game)
-hypixelAPIKey = '02948a82-9bc5-4f3d-af8a-0e423600284e'
+hypixelAPIKey = ''
 #Time between checks if the users are online: (More accounts means higher time. If you get errors increase this.)
-timeBetween = 60
+timeBetween = 120
 
 
 
@@ -29,35 +29,48 @@ content_list = content.split(",")
 usersOnline = []
 my_file.close()
 
+print("""
+    __  __            _           ______  _            
+   / / / /_  ______  (_)  _____  / / __ \(_)___  ____ _
+  / /_/ / / / / __ \/ / |/_/ _ \/ / /_/ / / __ \/ __ `/
+ / __  / /_/ / /_/ / />  </  __/ / ____/ / / / / /_/ / 
+/_/ /_/\__, / .___/_/_/|_|\___/_/_/   /_/_/ /_/\__, /  
+      /____/_/                                /____/   
+      
+      Made by Duplexes! Don't skid and sell! 
+      
+      Check my other projects out here: https://discord.gg/m2ww79zA6B   
+""")
+
+input("Press any key to start!")
+print("Following names are being checked: ")
+print(*content_list, sep = ", ")
 
 while True:
     time.sleep(timeBetween)
     for x in content_list:
-        responseMojang = requests.get('https://api.mojang.com/users/profiles/minecraft/' + x)
-        if responseMojang.status_code == 200:
+        try:
+            responseMojang = requests.get('https://api.mojang.com/users/profiles/minecraft/' + x)
             jsonMojang = responseMojang.json()
             rawuuid = jsonMojang['id']
-            uuidValid = True
-
-        else:
-            uuidValid = False
-            rawuuid = 'false'
-        responseHypixel = requests.get(f'https://api.hypixel.net/status?key={hypixelAPIKey}&uuid={rawuuid}')
-        jsonHypixel = responseHypixel.json()
-        print(jsonHypixel)
-        userOnline = jsonHypixel['session']['online']
-        time.sleep(3)
+            responseHypixel = requests.get(f'https://api.hypixel.net/status?key={hypixelAPIKey}&uuid={rawuuid}')
+            jsonHypixel = responseHypixel.json()
+            userOnline = jsonHypixel['session']['online']
+            time.sleep(10)
+        except:
+            print(f"[+] Ran into a error while checking status for {x}")
+            continue
 
         if userOnline == True:
             if x not in usersOnline:
                 usersOnline.append(x)
-                print(f"{x} has joined Hypixel!")
+                print(f"[+] {x} has joined Hypixel!")
                 hook.send(f"{x} has joined Hypixel! {notifcationPing}")
 
         else:
             if x in usersOnline:
                 usersOnline.remove(x)
-                print(f"{x} has left Hypixel!")
+                print(f"[+] {x} has left Hypixel!")
                 hook.send(f"{x} has left Hypixel! {notifcationPing}")
 
 
