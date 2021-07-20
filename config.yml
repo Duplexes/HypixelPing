@@ -1,0 +1,17 @@
+discord:
+#Put user ID to ping / role ID(ping user ID: <@USERIDHERE> ping role ID: <&ROLEIDHERE>):
+  mention:
+#Put discord webhook here:
+  webhookURL:
+  webhookName: Join Alerter
+  webhookImageName: avatar.png
+hypixel:
+#Put Hypixel API key here: (Get key from /api in game)
+  APIKey:
+#Time between checks if the users are online: (More accounts means higher time. If you get errors increase this.)
+  alertTime: 80
+accounts:
+  - Example
+  - Example2
+  - Example3
+  - Example4

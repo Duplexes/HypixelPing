@@ -2,32 +2,30 @@
 import requests
 import time
 from dhooks import Webhook
+import yaml
 
 
 # Hypixel join pinger made by Duplexes#4335 for HaNicky#0244
 # Put accounts in accounts.txt
 
 
-#Config:
 
-#Put discord webhook here:
-#hook = Webhook('')
-#Put user ID to ping / role ID(ping user ID: <@USERIDHERE> ping role ID: <&ROLEIDHERE>):
-notifcationPing = '<@>'
-#Put Hypixel API key here: (Get key from /api in game)
-hypixelAPIKey = ''
-#Time between checks if the users are online: (More accounts means higher time. If you get errors increase this.)
-timeBetween = 120
-
-
-
-
-
-my_file = open("accounts.txt", "r")
-content = my_file.read()
-content_list = content.split(",")
+with open('config.yml', 'r') as f:
+    config = yaml.load(f)
+content_list = config['accounts']
 usersOnline = []
-my_file.close()
+
+hook = Webhook(config['discord']['webhookURL'])
+notifcationPing = (config['discord']['mention'])
+hookName = (config['discord']['webhookName'])
+hookImageName = (config['discord']['webhookImageName'])
+hypixelAPIKey = (config['hypixel']['APIKey'])
+timeBetween = (config['hypixel']['alertTime'])
+
+with open(hookImageName, 'rb') as f:
+    img = f.read()  # bytes
+
+hook.modify(name=hookName, avatar=img)
 
 print("""
     __  __            _           ______  _            
