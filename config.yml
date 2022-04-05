@@ -1,17 +1,149 @@
 discord:
 #Put user ID to ping / role ID(ping user ID: <@USERIDHERE> ping role ID: <&ROLEIDHERE>):
-  mention:
+  mention: <@959267911837548574>
 #Put discord webhook here:
-  webhookURL:
-  webhookName: Join Alerter
+  webhookURL: https://discord.com/api/webhooks/959326905448943616/0Uf57p-p8mdu96FNCcetns_RRYAcojPxXO3_AMLcIYaUROhPL3HtF5eYmzCUga7yaIIt
+  webhookName: Hypixel Join Alerter
   webhookImageName: avatar.png
 hypixel:
 #Put Hypixel API key here: (Get key from /api in game)
-  APIKey:
+  APIKey: 24ab4671-052a-46ed-a15c-7af715d53441
 #Time between checks if the users are online: (More accounts means higher time. If you get errors increase this.)
   alertTime: 80
 accounts:
-  - Example
-  - Example2
-  - Example3
-  - Example4
+  - Duplexes
+  - Dinnerbone
+  - Searge
+  - DarnGeek
+  - Binni
+  - Marc
+  - Dctr
+  - AdamWho
+  - BlocksKey
+  - Bloozing
+  - Brandonjja
+  - Dueces
+  - Falloutowns
+  - Carstairs95
+  - TheBirmanator
+  - Glis6
+  - Cryptkeeper
+  - Cham
+  - ChiLynn
+  - Minikloon
+  - JamieTheGeek
+  - Froz3n
+  - inventivetalent
+  - Magicboys
+  - TheGreaterGod
+  - Roddan
+  - darkaceness
+  - aPunch
+  - Jayavarmen
+  - Nitroholic
+  - NoxyD
+  - TheMGRF
+  - Sylent
+  - skyerzz
+  - AgentK
+  - mooTV
+  - Cheezey
+  - ConnorLinfoot
+  - Relenter
+  - Plancke
+  - Teddy
+  - RapidTheNerd
+  - sfarnham
+  - TorWolf
+  - LandonHP
+  - Smoarzified
+  - Centranos
+  - Quack
+  - Rhune
+  - Smoarzified
+  - jamzs
+  - Aerh
+  - DeluxeRose
+  - DirtyShooter
+  - The_Darthonian
+  - Boga32
+  - Phaige
+  - MasterControl
+  - HypixelEvents
+  - Technoblade
+  - Hypixel
+  - Rezzus
+  - gdcolon
+  - chazm
+  - blocksssssss
+  - anniepants02
+  - tipok95
+  - thrill_gamerz
+  - scotteh
+  - Vraxlive
+  - drdukeyt
+  - sarite
+  - omziscool
+  - FlameBoy101
+  - Pensul
+  - Bembo
+  - Judg3
+  - Ladybleu
+  - Revengeee
+  - Taytale
+  - Citria
+  - plummel
+  - MistressEldrid
+  - Districtgecko
+  - polynalove
+  - Bloozing
+  - Nausicaah
+  - Rozsa
+  - Externalizable
+  - Vinny8ball666
+  - _onah
+  - aloneplayerhd
+  - tubaaja
+  - vixon
+  - clownpierce
+  - scenical
+  - mapicc
+  - Zavast
+  - imeduardoag
+  - mrcoffeetv
+  - rustlul
+  - jacooob_
+  - JohnPaulInso
+  - Omarmu
+  - TDawgN
+  - Hannahful
+  - PolskiPingwin
+  - Danjzilla
+  - GDColon
+  - Chazm
+  - Blocksssssss
+  - AnniePants02
+  - tipok95
+  - Thrill_Gamerz
+  - Sarite
+  - Omziscool
+  - TheOriginalAce
+  - Dra2oon
+  - CookieCutter94
+  - Pigicial
+  - DKMCC123
+  - p0wer0wner
+  - Lego_Maestro
+  - Multicort
+  - BenMascott
+  - Funderful_YT
+  - dcvfx
+  - TwiShorts
+  - PlanetLord
+  - Garboil
+  - LetsPhil
+  - zNexos
+  - Jules
+  - DarkRaki345
+  - Wunba
+  - Ulanos

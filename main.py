@@ -1,12 +1,7 @@
-
 import requests
 import time
-from dhooks import Webhook
+from dhooks import Webhook, Embed
 import yaml
-
-
-# Hypixel join pinger made by Duplexes#4335 for HaNicky#0244
-# Put accounts in accounts.txt
 
 
 
@@ -60,16 +55,16 @@ while True:
             continue
 
         if userOnline == True:
-            if x not in usersOnline:
+            if x not in usersOnline and jsonHypixel['session']['gameType'] == "SKYBLOCK":
                 usersOnline.append(x)
-                print(f"[+] {x} has joined Hypixel!")
-                hook.send(f"{x} has joined Hypixel! {notifcationPing}")
+                print(f"[+] {x} has joined Skyblock!")
+                hook.send(f"{x} has joined Skyblock! They currently are in: {jsonHypixel['session']['mode']} {notifcationPing}")
 
-        else:
-            if x in usersOnline:
-                usersOnline.remove(x)
-                print(f"[+] {x} has left Hypixel!")
-                hook.send(f"{x} has left Hypixel! {notifcationPing}")
+            else:
+                if x in usersOnline:
+                    usersOnline.remove(x)
+                    print(f"[+] {x} has left Skyblock!")
+                    hook.send(f"{x} has left Skyblock! {notifcationPing}")
 
 
 
