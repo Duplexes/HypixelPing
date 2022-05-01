@@ -6,7 +6,7 @@ import yaml
 
 
 with open('config.yml', 'r') as f:
-    config = yaml.load(f)
+    config = yaml.load(f,Loader=yaml.FullLoader)
 content_list = config['accounts']
 usersOnline = []
 
@@ -19,6 +19,8 @@ timeBetween = (config['hypixel']['alertTime'])
 
 with open(hookImageName, 'rb') as f:
     img = f.read()  # bytes
+
+
 
 hook.modify(name=hookName, avatar=img)
 
@@ -58,13 +60,30 @@ while True:
             if x not in usersOnline and jsonHypixel['session']['gameType'] == "SKYBLOCK":
                 usersOnline.append(x)
                 print(f"[+] {x} has joined Skyblock!")
-                hook.send(f"{x} has joined Skyblock! They currently are in: {jsonHypixel['session']['mode']} {notifcationPing}")
-
+                embed = Embed(
+                    description=f'The following player has joined Skyblock! {notifcationPing}',
+                    color=0x5CDBF0,
+                    timestamp='now'  # sets the timestamp to current time
+                )
+                embed.set_author(name='Join Alert Bot', icon_url='https://i.imgur.com/jyCNrYC.png')
+                embed.set_footer(text='Copyright 2022 Duplexes', icon_url='https://i.imgur.com/jyCNrYC.png')
+                embed.add_field(name='Username:', value=x, inline=True)
+                embed.add_field(name='Game:', value=jsonHypixel['session']['mode'], inline=True)
+                hook.send(embed=embed)
             else:
                 if x in usersOnline:
                     usersOnline.remove(x)
                     print(f"[+] {x} has left Skyblock!")
-                    hook.send(f"{x} has left Skyblock! {notifcationPing}")
+                    embed = Embed(
+                        description=f'The following player has left Skyblock! {notifcationPing}',
+                        color=0x5CDBF0,
+                        timestamp='now'
+                    )
+                    embed.set_author(name='Join Alert Bot', icon_url='https://i.imgur.com/jyCNrYC.png')
+                    embed.set_footer(text='Copyright 2022 Duplexes', icon_url='https://i.imgur.com/jyCNrYC.png')
+                    embed.add_field(name='Username:', value=x, inline=True)
+                    embed.add_field(name='Game:', value=jsonHypixel['session']['mode'], inline=True)
+                    hook.send(embed=embed)
 
 
 
